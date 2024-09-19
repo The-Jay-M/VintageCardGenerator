@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vintage Greeting Card Creator by J. Money</title>
+    <link rel="stylesheet" href="https://unpkg.com/dropzone@5/dist/min/dropzone.min.css" type="text/css" />
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Pacifico&family=Lobster&family=Great+Vibes&family=Satisfy&family=Charm&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
+    <style>
+        body {
+            font-family: 'Charm', cursive;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            background-color: #e8d9c0;
+            padding: 20px;
+            box-sizing: border-box;
+            color: #4a4a4a;
+            background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23d1bc9c' fill-opacity='0.2' fill-rule='evenodd'/%3E%3C/svg%3E");
+        }
+
+        .container {
+            text-align: center;
+            background-color: #f9f3e5;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.1);
+            max-width: 800px;
+            width: 100%;
+            border: 1px solid #d1bc9c;
+        }
+
+        h1 {
+            font-family: 'Great Vibes', cursive;
+            color: #8b4513;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+        }
+
+        #cardContainer {
+            width: 100%;
+            height: 0;
+            padding-bottom: 66.67%;
+            margin: 20px auto;
+            position: relative;
+            overflow: hidden;
+        }
+
+        #card {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        textarea, select, input[type="number"], input[type="range"] {
+            width: 100%;
+            margin-bottom: 15px;
+            padding: 10px;
+            box-sizing: border-box;
+            border: 1px solid #d1bc9c;
+            border-radius: 5px;
+            background-color: #fff;
+            font-family: 'Charm', cursive;
+            color: #4a4a4a;
+        }
+
+        textarea {
+            height: 100px;
+            resize: vertical;
+        }
+
+        button {
+            background-color: #8b4513;
+            border: none;
+            color: #f9f3e5;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 5px;
+            font-family: 'Charm', cursive;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #a0522d;
+        }
+
+        #downloadBtn {
+            background-color: #4a4a4a;
+        }
+
+        #downloadBtn:hover {
+            background-color: #666;
+        }
+
+        #myDropzone {
+            border: 2px dashed #d1bc9c;
+            border-radius: 5px;
+            padding: 20px;
+            margin-bottom: 20px;
+            background-color: #fff;
+        }
+
+        #colorPicker, #bgColorPicker {
+            width: 100%;
+            height: 40px;
+            margin-bottom: 15px;
+            border: 1px solid #d1bc9c;
+            border-radius: 5px;
+        }
+
+        .control-group {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+        }
+
+        .control-group > * {
+            width: 48%;
+        }
+
+        #stickers {
+            display: none;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-bottom: 15px;
+        }
+
+        .sticker {
+            width: 50px;
+            height: 50px;
+            margin: 5px;
+            cursor: pointer;
+        }
+
+        #undoRedo {
+            margin-bottom: 15px;
+        }
+
+        #shareButtons {
+            margin-top: 15px;
+        }
+
+        .share-btn {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            font-size: 20px;
+            color: #fff;
+            line-height: 40px;
+            text-align: center;
+            margin: 0 5px;
+        }
+
+        .share-btn.facebook { background-color: #3b5998; }
+        .share-btn.twitter { background-color: #1da1f2; }
+        .share-btn.whatsapp { background-color: #25d366; }
+
+        #exampleCarousel {
+            margin-top: 30px;
+        }
+
+        .carousel-item {
+            padding: 0 10px;
+        }
+
+        .carousel-item img {
+            width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
+
+        #suggestionBox {
+            margin-top: 30px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        #suggestionForm textarea {
+            width: 100%;
+            height: 100px;
+            margin-bottom: 10px;
+        }
+
+        #suggestions {
+            margin-top: 20px;
+            max-height: 200px;
+            overflow-y: auto;
+        }
+
+        .suggestion {
+            background-color: #f9f3e5;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            border: 1px solid #d1bc9c;
+        }
+
+        #designedBy {
+            margin-top: 30px;
+            font-style: italic;
+            color: #8b4513;
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding: 10px;
+            }
+
+            .container {
+                padding: 20px;
+            }
+
+            button {
+                width: 100%;
+                margin: 5px 0;
+            }
+
+            h1 {
+                font-size: 2em;
+            }
+
+            .control-group {
+                flex-direction: column;
+            }
+
+            .control-group > * {
+                width: 100%;
+                margin-bottom: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Vintage Greeting Card Creator</h1>
+        <form id="myDropzone" class="dropzone">
+            <div class="dz-message" data-dz-message><span>Drop files here or click to upload background image</span></div>
+        </form>
+        <div class="control-group">
+            <select id="aspectRatio" onchange="changeAspectRatio()">
+                <option value="1.5">3:2 (Landscape)</option>
+                <option value="0.6666">2:3 (Portrait)</option>
+                <option value="1">1:1 (Square)</option>
+                <option value="1.7778">16:9 (Widescreen)</option>
+            </select>
+            <input type="color" id="bgColorPicker" value="#ffffff" title="Background Color" onchange="changeBgColor()">
+        </div>
+        <select id="themeSelector" onchange="changeTheme()">
+            <option value="">Select a theme</option>
+            <option value="birthday">Birthday</option>
+            <option value="wedding">Wedding</option>
+            <option value="celebration">Celebration</option>
+            <option value="invite">Invitation</option>
+            <option value="meme">Meme</option>
+        </select>
+        <textarea id="message" placeholder="Enter your greeting message here"></textarea>
+        <button onclick="addText()">Add Text</button>
+        <div class="control-group">
+            <select id="fontSelector" onchange="changeFont()">
+                <option value="Dancing Script">Dancing Script</option>
+                <option value="Pacifico">Pacifico</option>
+                <option value="Lobster">Lobster</option>
+                <option value="Great Vibes">Great Vibes</option>
+                <option value="Satisfy">Satisfy</option>
+                <option value="Charm">Charm</option>
+            </select>
+            <input type="color" id="colorPicker" value="#4a4a4a" title="Text Color" onchange="changeTextColor()">
+        </div>
+        <div class="control-group">
+            <input type="number" id="fontSize" min="12" max="72" value="18" title="Font Size" onchange="changeFontSize()">
+            <select id="textAlign" onchange="changeTextAlign()">
+                <option value="left">Left</option>
+                <option value="center">Center</option>
+                <option value="right">Right</option>
+            </select>
+        </div>
+        <button onclick="toggleStickers()">Toggle Stickers</button>
+        <div id="stickers"></div>
+        <div class="control-group">
+            <input type="range" id="blurRange" min="0" max="10" value="0" onchange="applyFilter()">
+            <label for="blurRange">Blur</label>
+        </div>
+        <div class="control-group">
+            <input type="range" id="vignetteRange" min="0" max="1" step="0.1" value="0" onchange="applyFilter()">
+            <label for="vignetteRange">Vignette</label>
+        </div>
+        <div class="control-group">
+            <select id="overlayColor" onchange="applyFilter()">
+                <option value="">No Overlay</option>
+                <option value="rgba(255,0,0,0.3)">Red</option>
+                <option value="rgba(0,255,0,0.3)">Green</option>
+                <option value="rgba(0,0,255,0.3)">Blue</option>
+                <option value="rgba(255,255,0,0.3)">Yellow</option>
+            </select>
+            <label for="overlayColor">Overlay Color</label>
+        </div>
+        <div id="undoRedo">
+            <button onclick="undo()">Undo</button>
+            <button onclick="redo()">Redo</button>
+        </div>
+        <div id="cardContainer">
+            <canvas id="card"></canvas>
+        </div>
+        <button onclick="generateCard()">Generate Card</button>
+        <button id="downloadBtn" onclick="downloadCard()" style="display: none;">Download Card</button>
+        <div id="shareButtons">
+            <a href="#" class="share-btn facebook" onclick="shareToFacebook()"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="share-btn twitter" onclick="shareToTwitter()"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="share-btn whatsapp" onclick="shareToWhatsApp()"><i class="fab fa-whatsapp"></i></a>
+        </div>
+
+        <div id="exampleCarousel">
+            <h2>Examples</h2>
+            <div class="carousel">
+                <div><img src="https://example.com/card1.jpg" alt="Example Card 1"></div>
+                <div><img src="https://example.com/card2.jpg" alt="Example Card 2"></div>
+                <div><img src="https://example.com/card3.jpg" alt="Example Card 3"></div>
+                <div><img src="https://example.com/card4.jpg" alt="Example Card 4"></div>
+            </div>
+        </div>
+
+        <div id="suggestionBox">
+            <h2>Suggestions</h2>
+            <textarea id="newSuggestion" placeholder="Enter your suggestion..."></textarea>
+            <button onclick="addSuggestion()">Submit Suggestion</button>
+            <div id="suggestions"></div>
+        </div>
+
+        <div id="designedBy">
+            <p>Designed by J. Money</p>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/dropzone@5/dist/min/dropzone.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fabric.js/4.5.0/fabric.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+        let canvas;
+        let undoStack = [];
+        let redoStack = [];
+
+        const API_KEY = '$2a$10$quQ10iPGr2Y6JZmPnnGyLecKhaGcDcj31LONsvtagG6/SlG4D865G';
+        const BIN_ID = '66b8d47fe41b4d34e41ee029';
+
+        // Rate limiting configuration
+        const RATE_LIMIT = 5; // Number of allowed calls
+        const RATE_LIMIT_PERIOD = 60000; // Time period in milliseconds (1 minute)
+
+        // Rate limiter
+        const rateLimiter = {
+            tokens: RATE_LIMIT,
+            lastRefill: Date.now(),
+            
+            canMakeRequest() {
+                this.refillTokens();
+                if (this.tokens > 0) {
+                    this.tokens -= 1;
+                    return true;
+                }
+                return false;
+            },
+
+            refillTokens() {
+                const now = Date.now();
+                const timePassed = now - this.lastRefill;
+                const refillAmount = Math.floor(timePassed / RATE_LIMIT_PERIOD) * RATE_LIMIT;
+                this.tokens = Math.min(RATE_LIMIT, this.tokens + refillAmount);
+                this.lastRefill = now;
+            }
+        };
+
+        async function makeRateLimitedRequest(requestFunc) {
+            if (rateLimiter.canMakeRequest()) {
+                return await requestFunc();
+            } else {
+                throw new Error("Rate limit exceeded. Please try again later.");
+            }
+        }
+
+        Dropzone.options.myDropzone = {
+            url: "#",
+            autoProcessQueue: false,
+            uploadMultiple: false,
+            maxFiles: 1,
+            acceptedFiles: "image/*",
+            init: function() {
+                this.on("addedfile", function(file) {
+                    if (this.files.length > 1) {
+                        this.removeFile(this.files[0]);
+                    }
+                    const reader = new FileReader();
+                    reader.onload = function(e) {
+                        setBackgroundImage(e.target.result);
+                    }
+                    reader.readAsDataURL(file);
+                });
+            }
+        };
+
+        function initCanvas() {
+            canvas = new fabric.Canvas('card');
+            canvas.setDimensions({width: 600, height: 400});
+            canvas.on('object:added', saveState);
+            canvas.on('object:modified', saveState);
+        }
+
+        function setBackgroundImage(url) {
+            fabric.Image.fromURL(url, function(img) {
+                img.scaleToWidth(canvas.width);
+                canvas.setBackgroundImage(img, canvas.renderAll.bind(canvas));
+            });
+        }
+
+        function changeAspectRatio() {
+            const aspectRatio = parseFloat(document.getElementById('aspectRatio').value);
+            const width = 600;
+            const height = width / aspectRatio;
+            canvas.setDimensions({width: width, height: height});
+            canvas.renderAll();
+        }
+
+        function changeBgColor() {
+            const bgColor = document.getElementById('bgColorPicker').value;
+            canvas.backgroundColor = bgColor;
+            canvas.renderAll();
+        }
+
+        function changeTheme() {
+            const theme = document.getElementById('themeSelector').value;
+            const themeUrls = {
+                'birthday': 'https://example.com/birthday_bg.jpg',
+                'wedding': 'https://example.com/wedding_bg.jpg',
+                'celebration': 'https://example.com/celebration_bg.jpg',
+                'invite': 'https://example.com/invite_bg.jpg',
+                'meme': 'https://example.com/meme_bg.jpg'
+            };
+            if (theme in themeUrls) {
+                setBackgroundImage(themeUrls[theme]);
+            }
+        }
+
+        function addText() {
+            const text = new fabric.IText(document.getElementById('message').value, {
+                left: 50,
+                top: 50,
+                fontFamily: document.getElementById('fontSelector').value,
+                fill: document.getElementById('colorPicker').value,
+                fontSize: parseInt(document.getElementById('fontSize').value),
+                textAlign: document.getElementById('textAlign').value
+            });
+            canvas.add(text);
+            canvas.setActiveObject(text);
+            saveState();
+        }
+
+        function changeFont() {
+            const activeObject = canvas.getActiveObject();
+            if (activeObject && activeObject.type === 'i-text') {
+                activeObject.set('fontFamily', document.getElementById('fontSelector').value);
+                canvas.renderAll();
+            }
+        }
+
+        function changeTextColor() {
+            const activeObject = canvas.getActiveObject();
+            if (activeObject && activeObject.type === 'i-text') {
+                activeObject.set('fill', document.getElementById('colorPicker').value);
+                canvas.renderAll();
+            }
+        }
+
+        function changeFontSize() {
+            const activeObject = canvas.getActiveObject();
+            if (activeObject && activeObject.type === 'i-text') {
+                activeObject.set('fontSize', parseInt(document.getElementById('fontSize').value));
+                canvas.renderAll();
+            }
+        }
+
+        function changeTextAlign() {
+            const activeObject = canvas.getActiveObject();
+            if (activeObject && activeObject.type === 'i-text') {
+                activeObject.set('textAlign', document.getElementById('textAlign').value);
+                canvas.renderAll();
+            }
+        }
+
+        function addSticker(stickerUrl) {
+            fabric.Image.fromURL(stickerUrl, function(img) {
+                img.scale(0.5);
+                canvas.add(img);
+                saveState();
+            });
+        }
+
+        function generateStickers() {
+            const stickerContainer = document.getElementById('stickers');
+            const stickerUrls = [
+                'https://example.com/sticker1.png',
+                'https://example.com/sticker2.png',
+                'https://example.com/sticker3.png',
+                'https://example.com/sticker4.png'
+            ];
+            
+            stickerUrls.forEach(url => {
+                const img = document.createElement('img');
+                img.src = url;
+                img.className = 'sticker';
+                img.onclick = function() { addSticker(url); };
+                stickerContainer.appendChild(img);
+            });
+        }
+
+        function toggleStickers() {
+            const stickers = document.getElementById('stickers');
+            stickers.style.display = stickers.style.display === 'none' ? 'flex' : 'none';
+        }
+
+        function applyFilter() {
+            const blur = document.getElementById('blurRange').value;
+            const vignette = document.getElementById('vignetteRange').value;
+            const overlayColor = document.getElementById('overlayColor').value;
+
+            canvas.getObjects().forEach(obj => {
+                obj.filters = [];
+                if (blur > 0) obj.filters.push(new fabric.Image.filters.Blur({blur: parseFloat(blur) / 10}));
+                if (vignette > 0) obj.filters.push(new fabric.Image.filters.Vignette({radius: vignette}));
+                obj.applyFilters();
+            });
+
+            if (overlayColor) {
+                const overlay = new fabric.Rect({
+                    left: 0,
+                    top: 0,
+                    width: canvas.width,
+                    height: canvas.height,
+                    fill: overlayColor
+                });
+                canvas.add(overlay);
+                canvas.sendToBack(overlay);
+            }
+
+            canvas.renderAll();
+            saveState();
+        }
+
+        function saveState() {
+            undoStack.push(JSON.stringify(canvas));
+            redoStack = [];
+        }
+
+        function undo() {
+            if (undoStack.length > 1) {
+                redoStack.push(undoStack.pop());
+                canvas.loadFromJSON(undoStack[undoStack.length - 1], canvas.renderAll.bind(canvas));
+            }
+        }
+
+        function redo() {
+            if (redoStack.length > 0) {
+                undoStack.push(redoStack.pop());
+                canvas.loadFromJSON(undoStack[undoStack.length - 1], canvas.renderAll.bind(canvas));
+            }
+        }
+
+        function generateCard() {
+            applyFilter();
+            document.getElementById('downloadBtn').style.display = 'inline-block';
+        }
+
+        function downloadCard() {
+            const dataURL = canvas.toDataURL({
+                format: 'png',
+                quality: 1
+            });
+            const link = document.createElement('a');
+            link.download = 'vintage_greeting_card.png';
+            link.href = dataURL;
+            link.click();
+        }
+
+        function shareToFacebook() {
+            const url = encodeURIComponent(window.location.href);
+            window.open(`https://www.facebook.com/sharer/sharer.php?u=${url}`, '_blank');
+        }
+
+        function shareToTwitter() {
+            const url = encodeURIComponent(window.location.href);
+            const text = encodeURIComponent('Check out my vintage greeting card!');
+            window.open(`https://twitter.com/intent/tweet?url=${url}&text=${text}`, '_blank');
+        }
+
+        function shareToWhatsApp() {
+            const url = encodeURIComponent(window.location.href);
+            const text = encodeURIComponent('Check out my vintage greeting card!');
+            window.open(`https://wa.me/?text=${text}%20${url}`, '_blank');
+        }
+
+        async function fetchSuggestions() {
+            try {
+                return await makeRateLimitedRequest(async () => {
+                    const response = await axios.get(`https://api.jsonbin.io/v3/b/${BIN_ID}/latest`, {
+                        headers: {
+                            'X-Master-Key': API_KEY
+                        }
+                    });
+                    return response.data.record.suggestions;
+                });
+            } catch (error) {
+                console.error('Error fetching suggestions:', error);
+                return [];
+            }
+        }
+
+        async function saveSuggestions(suggestions) {
+            try {
+                await makeRateLimitedRequest(async () => {
+                    await axios.put(`https://api.jsonbin.io/v3/b/${BIN_ID}`, { suggestions }, {
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'X-Master-Key': API_KEY
+                        }
+                    });
+                });
+            } catch (error) {
+                console.error('Error saving suggestions:', error);
+                throw error;
+            }
+        }
+
+        async function addSuggestion() {
+            const suggestionText = document.getElementById('newSuggestion').value.trim();
+            if (suggestionText) {
+                try {
+                    const suggestions = await fetchSuggestions();
+                    suggestions.push(suggestionText);
+                    await saveSuggestions(suggestions);
+                    document.getElementById('newSuggestion').value = '';
+                    displaySuggestions();
+                } catch (error) {
+                    alert(error.message);
+                }
+            }
+        }
+
+        async function displaySuggestions() {
+            try {
+                const suggestions = await fetchSuggestions();
+                const suggestionsContainer = document.getElementById('suggestions');
+                suggestionsContainer.innerHTML = suggestions.map(suggestion => 
+                    `<div class="suggestion">${suggestion}</div>`
+                ).join('');
+            } catch (error) {
+                console.error('Error displaying suggestions:', error);
+                alert("Unable to load suggestions. Please try again later.");
+            }
+        }
+
+        window.onload = function() {
+            initCanvas();
+            generateStickers();
+            $('.carousel').slick({
+                dots: true,
+                infinite: true,
+                speed: 300,
+                slidesToShow: 1,
+                adaptiveHeight: true
+            });
+            displaySuggestions();
+        };
+    </script>
+</body>
+</html>
