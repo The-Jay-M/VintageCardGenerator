@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intro.js@5.0.0/minified/introjs.min.css">
     <style>
         body {
             font-family: 'Charm', cursive;
@@ -17,47 +18,47 @@
             align-items: center;
             min-height: 100vh;
             margin: 0;
-            background-color: #e8d9c0;
+            background-color: #2c3e50;
             padding: 20px;
             box-sizing: border-box;
-            color: #4a4a4a;
-            background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23d1bc9c' fill-opacity='0.2' fill-rule='evenodd'/%3E%3C/svg%3E");
+            color: #ecf0f1;
+            background-image: url('https://www.transparenttextures.com/patterns/brushed-alum.png');
         }
 
         .container {
             text-align: center;
-            background-color: #f9f3e5;
+            background-color: #34495e;
             padding: 30px;
             border-radius: 10px;
-            box-shadow: 0 0 15px rgba(0,0,0,0.1);
+            box-shadow: 0 0 15px rgba(0,0,0,0.3);
             max-width: 800px;
             width: 100%;
-            border: 1px solid #d1bc9c;
+            border: 1px solid #7f8c8d;
         }
 
         h1 {
             font-family: 'Great Vibes', cursive;
-            color: #8b4513;
+            color: #e74c3c;
             font-size: 2.5em;
             margin-bottom: 20px;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
         }
 
         #cardContainer {
             width: 100%;
-            height: 0;
-            padding-bottom: 66.67%;
+            height: 400px;
             margin: 20px auto;
             position: relative;
             overflow: hidden;
+            border: 10px solid #bdc3c7;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.5);
+            touch-action: none;
         }
 
         #card {
             width: 100%;
             height: 100%;
-            position: absolute;
-            top: 0;
-            left: 0;
         }
 
         textarea, select, input[type="number"], input[type="range"] {
@@ -65,22 +66,17 @@
             margin-bottom: 15px;
             padding: 10px;
             box-sizing: border-box;
-            border: 1px solid #d1bc9c;
+            border: 1px solid #7f8c8d;
             border-radius: 5px;
-            background-color: #fff;
+            background-color: #2c3e50;
             font-family: 'Charm', cursive;
-            color: #4a4a4a;
-        }
-
-        textarea {
-            height: 100px;
-            resize: vertical;
+            color: #ecf0f1;
         }
 
         button {
-            background-color: #8b4513;
+            background-color: #e74c3c;
             border: none;
-            color: #f9f3e5;
+            color: #ecf0f1;
             padding: 10px 20px;
             text-align: center;
             text-decoration: none;
@@ -94,31 +90,24 @@
         }
 
         button:hover {
-            background-color: #a0522d;
-        }
-
-        #downloadBtn {
-            background-color: #4a4a4a;
-        }
-
-        #downloadBtn:hover {
-            background-color: #666;
+            background-color: #c0392b;
         }
 
         #myDropzone {
-            border: 2px dashed #d1bc9c;
+            border: 2px dashed #7f8c8d;
             border-radius: 5px;
             padding: 20px;
             margin-bottom: 20px;
-            background-color: #fff;
+            background-color: #2c3e50;
         }
 
         #colorPicker, #bgColorPicker {
             width: 100%;
             height: 40px;
             margin-bottom: 15px;
-            border: 1px solid #d1bc9c;
+            border: 1px solid #7f8c8d;
             border-radius: 5px;
+            background-color: #2c3e50;
         }
 
         .control-group {
@@ -131,22 +120,54 @@
             width: 48%;
         }
 
-        #stickers {
-            display: none;
+        #frames, #stickers {
+            display: flex;
             flex-wrap: wrap;
             justify-content: center;
             margin-bottom: 15px;
         }
 
-        .sticker {
+        .frame, .sticker {
             width: 50px;
             height: 50px;
             margin: 5px;
             cursor: pointer;
+            border: 2px solid #7f8c8d;
+            border-radius: 5px;
         }
 
-        #undoRedo {
-            margin-bottom: 15px;
+        #projectName {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background-color: rgba(44, 62, 80, 0.7);
+            padding: 5px;
+            border-radius: 3px;
+        }
+
+        #howToUse {
+            background-color: #e74c3c;
+            color: #ecf0f1;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-bottom: 20px;
+        }
+
+        .introjs-tooltip {
+            background-color: #34495e;
+            color: #ecf0f1;
+        }
+
+        .introjs-button {
+            background-color: #e74c3c;
+            color: #ecf0f1;
+            border: none;
+        }
+
+        .introjs-button:hover {
+            background-color: #c0392b;
         }
 
         #shareButtons {
@@ -168,90 +189,16 @@
         .share-btn.facebook { background-color: #3b5998; }
         .share-btn.twitter { background-color: #1da1f2; }
         .share-btn.whatsapp { background-color: #25d366; }
-
-        #exampleCarousel {
-            margin-top: 30px;
-        }
-
-        .carousel-item {
-            padding: 0 10px;
-        }
-
-        .carousel-item img {
-            width: 100%;
-            height: auto;
-            border-radius: 5px;
-        }
-
-        #suggestionBox {
-            margin-top: 30px;
-            padding: 20px;
-            background-color: #fff;
-            border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-        }
-
-        #suggestionForm textarea {
-            width: 100%;
-            height: 100px;
-            margin-bottom: 10px;
-        }
-
-        #suggestions {
-            margin-top: 20px;
-            max-height: 200px;
-            overflow-y: auto;
-        }
-
-        .suggestion {
-            background-color: #f9f3e5;
-            padding: 10px;
-            margin-bottom: 10px;
-            border-radius: 5px;
-            border: 1px solid #d1bc9c;
-        }
-
-        #designedBy {
-            margin-top: 30px;
-            font-style: italic;
-            color: #8b4513;
-        }
-
-        @media (max-width: 600px) {
-            body {
-                padding: 10px;
-            }
-
-            .container {
-                padding: 20px;
-            }
-
-            button {
-                width: 100%;
-                margin: 5px 0;
-            }
-
-            h1 {
-                font-size: 2em;
-            }
-
-            .control-group {
-                flex-direction: column;
-            }
-
-            .control-group > * {
-                width: 100%;
-                margin-bottom: 10px;
-            }
-        }
     </style>
 </head>
 <body>
     <div class="container">
         <h1>Vintage Greeting Card Creator</h1>
+        <button id="howToUse">How to Use</button>
         <form id="myDropzone" class="dropzone">
             <div class="dz-message" data-dz-message><span>Drop files here or click to upload background image</span></div>
         </form>
+        <input type="text" id="projectNameInput" placeholder="Enter project name" style="display: none;">
         <div class="control-group">
             <select id="aspectRatio" onchange="changeAspectRatio()">
                 <option value="1.5">3:2 (Landscape)</option>
@@ -290,6 +237,8 @@
                 <option value="right">Right</option>
             </select>
         </div>
+        <button onclick="toggleFrames()">Toggle Frames</button>
+        <div id="frames"></div>
         <button onclick="toggleStickers()">Toggle Stickers</button>
         <div id="stickers"></div>
         <div class="control-group">
@@ -310,38 +259,17 @@
             </select>
             <label for="overlayColor">Overlay Color</label>
         </div>
-        <div id="undoRedo">
-            <button onclick="undo()">Undo</button>
-            <button onclick="redo()">Redo</button>
-        </div>
         <div id="cardContainer">
             <canvas id="card"></canvas>
+            <div id="projectName"></div>
         </div>
         <button onclick="generateCard()">Generate Card</button>
-        <button id="downloadBtn" onclick="downloadCard()" style="display: none;">Download Card</button>
+        <button id="downloadBtn" onclick="downloadCard()">Download Card</button>
         <div id="shareButtons">
             <a href="#" class="share-btn facebook" onclick="shareToFacebook()"><i class="fab fa-facebook-f"></i></a>
             <a href="#" class="share-btn twitter" onclick="shareToTwitter()"><i class="fab fa-twitter"></i></a>
             <a href="#" class="share-btn whatsapp" onclick="shareToWhatsApp()"><i class="fab fa-whatsapp"></i></a>
         </div>
-
-        <div id="exampleCarousel">
-            <h2>Examples</h2>
-            <div class="carousel">
-                <div><img src="https://example.com/card1.jpg" alt="Example Card 1"></div>
-                <div><img src="https://example.com/card2.jpg" alt="Example Card 2"></div>
-                <div><img src="https://example.com/card3.jpg" alt="Example Card 3"></div>
-                <div><img src="https://example.com/card4.jpg" alt="Example Card 4"></div>
-            </div>
-        </div>
-
-        <div id="suggestionBox">
-            <h2>Suggestions</h2>
-            <textarea id="newSuggestion" placeholder="Enter your suggestion..."></textarea>
-            <button onclick="addSuggestion()">Submit Suggestion</button>
-            <div id="suggestions"></div>
-        </div>
-
         <div id="designedBy">
             <p>Designed by J. Money</p>
         </div>
@@ -349,83 +277,57 @@
 
     <script src="https://unpkg.com/dropzone@5/dist/min/dropzone.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fabric.js/4.5.0/fabric.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/intro.js@5.0.0/intro.min.js"></script>
+    <script src="https://hammerjs.github.io/dist/hammer.min.js"></script>
     <script>
         let canvas;
-        let undoStack = [];
-        let redoStack = [];
+        let projectName = "Untitled";
 
-        const API_KEY = '$2a$10$quQ10iPGr2Y6JZmPnnGyLecKhaGcDcj31LONsvtagG6/SlG4D865G';
-        const BIN_ID = '66b8d47fe41b4d34e41ee029';
+        const frameUrls = [
+            'https://example.com/frame1.png',
+            'https://example.com/frame2.png',
+            'https://example.com/frame3.png',
+            'https://example.com/frame4.png'
+        ];
 
-        // Rate limiting configuration
-        const RATE_LIMIT = 5; // Number of allowed calls
-        const RATE_LIMIT_PERIOD = 60000; // Time period in milliseconds (1 minute)
-
-        // Rate limiter
-        const rateLimiter = {
-            tokens: RATE_LIMIT,
-            lastRefill: Date.now(),
-            
-            canMakeRequest() {
-                this.refillTokens();
-                if (this.tokens > 0) {
-                    this.tokens -= 1;
-                    return true;
-                }
-                return false;
-            },
-
-            refillTokens() {
-                const now = Date.now();
-                const timePassed = now - this.lastRefill;
-                const refillAmount = Math.floor(timePassed / RATE_LIMIT_PERIOD) * RATE_LIMIT;
-                this.tokens = Math.min(RATE_LIMIT, this.tokens + refillAmount);
-                this.lastRefill = now;
-            }
-        };
-
-        async function makeRateLimitedRequest(requestFunc) {
-            if (rateLimiter.canMakeRequest()) {
-                return await requestFunc();
-            } else {
-                throw new Error("Rate limit exceeded. Please try again later.");
-            }
-        }
-
-        Dropzone.options.myDropzone = {
-            url: "#",
-            autoProcessQueue: false,
-            uploadMultiple: false,
-            maxFiles: 1,
-            acceptedFiles: "image/*",
-            init: function() {
-                this.on("addedfile", function(file) {
-                    if (this.files.length > 1) {
-                        this.removeFile(this.files[0]);
-                    }
-                    const reader = new FileReader();
-                    reader.onload = function(e) {
-                        setBackgroundImage(e.target.result);
-                    }
-                    reader.readAsDataURL(file);
-                });
-            }
-        };
+        const stickerUrls = [
+            'https://example.com/sticker1.png',
+            'https://example.com/sticker2.png',
+            'https://example.com/sticker3.png',
+            'https://example.com/sticker4.png'
+        ];
 
         function initCanvas() {
             canvas = new fabric.Canvas('card');
             canvas.setDimensions({width: 600, height: 400});
-            canvas.on('object:added', saveState);
-            canvas.on('object:modified', saveState);
+            canvas.on('object:added', updateCanvas);
+            canvas.on('object:modified', updateCanvas);
+        }
+
+        function updateCanvas() {
+            canvas.renderAll();
+            document.getElementById('projectName').textContent = projectName;
         }
 
         function setBackgroundImage(url) {
             fabric.Image.fromURL(url, function(img) {
-                img.scaleToWidth(canvas.width);
+                const canvasRatio = canvas.width / canvas.height;
+                const imgRatio = img.width / img.height;
+                
+                if (imgRatio > canvasRatio) {
+                    img.scaleToHeight(canvas.height);
+                } else {
+                    img.scaleToWidth(canvas.width);
+                }
+                
+                img.set({
+                    left: (canvas.width - img.getScaledWidth()) / 2,
+                    top: (canvas.height - img.getScaledHeight()) / 2
+                });
+                
                 canvas.setBackgroundImage(img, canvas.renderAll.bind(canvas));
+                document.getElementById('projectNameInput').style.display = 'block';
             });
         }
 
@@ -434,23 +336,23 @@
             const width = 600;
             const height = width / aspectRatio;
             canvas.setDimensions({width: width, height: height});
-            canvas.renderAll();
+            updateCanvas();
         }
 
         function changeBgColor() {
             const bgColor = document.getElementById('bgColorPicker').value;
             canvas.backgroundColor = bgColor;
-            canvas.renderAll();
+            updateCanvas();
         }
 
         function changeTheme() {
             const theme = document.getElementById('themeSelector').value;
             const themeUrls = {
-                'birthday': 'https://example.com/birthday_bg.jpg',
-                'wedding': 'https://example.com/wedding_bg.jpg',
-                'celebration': 'https://example.com/celebration_bg.jpg',
-                'invite': 'https://example.com/invite_bg.jpg',
-                'meme': 'https://example.com/meme_bg.jpg'
+                'birthday': 'https://pfst.cf2.poecdn.net/base/image/c30bde63f074bfd4d3521d9de1239d553d446cc9c820d5f39559ecf2e88a55b8?w=1024&h=1024&pmaid=154449699',
+                'wedding': 'https://pfst.cf2.poecdn.net/base/image/921a4373be19370db86c182d4fa39eb214e329f1bb8d3d250c641565ff69f8d4?w=1024&h=1024&pmaid=154450649',
+                'celebration': 'https://pfst.cf2.poecdn.net/base/image/e7e565a27f89068780d2f77dedb12018ae960f479a9759f87c7cbfe35e5266b0?w=1024&h=1024&pmaid=154451969',
+                'invite': 'https://pfst.cf2.poecdn.net/base/image/c5cc70033e2336844c6a4d00b02d1e155e66189e044c25dc47cdca70c93f9ec5?w=1024&h=1024&pmaid=154453142',
+                'meme': 'https://pfst.cf2.poecdn.net/base/image/77776507885498efe6e6ca67748ee675fd51f5fc5725b872bc5227d1c69e24a9?w=1024&h=1024&pmaid=154453836'
             };
             if (theme in themeUrls) {
                 setBackgroundImage(themeUrls[theme]);
@@ -468,14 +370,14 @@
             });
             canvas.add(text);
             canvas.setActiveObject(text);
-            saveState();
+            updateCanvas();
         }
 
         function changeFont() {
             const activeObject = canvas.getActiveObject();
             if (activeObject && activeObject.type === 'i-text') {
                 activeObject.set('fontFamily', document.getElementById('fontSelector').value);
-                canvas.renderAll();
+                updateCanvas();
             }
         }
 
@@ -483,7 +385,7 @@
             const activeObject = canvas.getActiveObject();
             if (activeObject && activeObject.type === 'i-text') {
                 activeObject.set('fill', document.getElementById('colorPicker').value);
-                canvas.renderAll();
+                updateCanvas();
             }
         }
 
@@ -491,7 +393,7 @@
             const activeObject = canvas.getActiveObject();
             if (activeObject && activeObject.type === 'i-text') {
                 activeObject.set('fontSize', parseInt(document.getElementById('fontSize').value));
-                canvas.renderAll();
+                updateCanvas();
             }
         }
 
@@ -499,27 +401,44 @@
             const activeObject = canvas.getActiveObject();
             if (activeObject && activeObject.type === 'i-text') {
                 activeObject.set('textAlign', document.getElementById('textAlign').value);
-                canvas.renderAll();
+                updateCanvas();
             }
+        }
+
+        function addFrame(frameUrl) {
+            fabric.Image.fromURL(frameUrl, function(img) {
+                img.scaleToWidth(canvas.width);
+                img.scaleToHeight(canvas.height);
+                canvas.setOverlayImage(img, canvas.renderAll.bind(canvas));
+            });
+        }
+
+        function generateFrames() {
+            const framesContainer = document.getElementById('frames');
+            frameUrls.forEach(url => {
+                const img = document.createElement('img');
+                img.src = url;
+                img.className = 'frame';
+                img.onclick = function() { addFrame(url); };
+                framesContainer.appendChild(img);
+            });
+        }
+
+        function toggleFrames() {
+            const frames = document.getElementById('frames');
+            frames.style.display = frames.style.display === 'none' ? 'flex' : 'none';
         }
 
         function addSticker(stickerUrl) {
             fabric.Image.fromURL(stickerUrl, function(img) {
                 img.scale(0.5);
                 canvas.add(img);
-                saveState();
+                updateCanvas();
             });
         }
 
         function generateStickers() {
             const stickerContainer = document.getElementById('stickers');
-            const stickerUrls = [
-                'https://example.com/sticker1.png',
-                'https://example.com/sticker2.png',
-                'https://example.com/sticker3.png',
-                'https://example.com/sticker4.png'
-            ];
-            
             stickerUrls.forEach(url => {
                 const img = document.createElement('img');
                 img.src = url;
@@ -558,43 +477,20 @@
                 canvas.sendToBack(overlay);
             }
 
-            canvas.renderAll();
-            saveState();
-        }
-
-        function saveState() {
-            undoStack.push(JSON.stringify(canvas));
-            redoStack = [];
-        }
-
-        function undo() {
-            if (undoStack.length > 1) {
-                redoStack.push(undoStack.pop());
-                canvas.loadFromJSON(undoStack[undoStack.length - 1], canvas.renderAll.bind(canvas));
-            }
-        }
-
-        function redo() {
-            if (redoStack.length > 0) {
-                undoStack.push(redoStack.pop());
-                canvas.loadFromJSON(undoStack[undoStack.length - 1], canvas.renderAll.bind(canvas));
-            }
+            updateCanvas();
         }
 
         function generateCard() {
-            applyFilter();
-            document.getElementById('downloadBtn').style.display = 'inline-block';
+            updateCanvas();
         }
 
         function downloadCard() {
-            const dataURL = canvas.toDataURL({
-                format: 'png',
-                quality: 1
+            html2canvas(document.getElementById('cardContainer')).then(function(canvas) {
+                const link = document.createElement('a');
+                link.download = `${projectName}.png`;
+                link.href = canvas.toDataURL();
+                link.click();
             });
-            const link = document.createElement('a');
-            link.download = 'vintage_greeting_card.png';
-            link.href = dataURL;
-            link.click();
         }
 
         function shareToFacebook() {
@@ -614,77 +510,146 @@
             window.open(`https://wa.me/?text=${text}%20${url}`, '_blank');
         }
 
-        async function fetchSuggestions() {
-            try {
-                return await makeRateLimitedRequest(async () => {
-                    const response = await axios.get(`https://api.jsonbin.io/v3/b/${BIN_ID}/latest`, {
-                        headers: {
-                            'X-Master-Key': API_KEY
-                        }
-                    });
-                    return response.data.record.suggestions;
+        document.getElementById('projectNameInput').addEventListener('change', function(e) {
+            projectName = e.target.value || "Untitled";
+            updateCanvas();
+        });
+
+        document.getElementById('howToUse').addEventListener('click', function() {
+            introJs().setOptions({
+                steps: [
+                    {
+                        element: '#myDropzone',
+                        intro: "Start by uploading a background image for your card."
+                    },
+                    {
+                        element: '#projectNameInput',
+                        intro: "Give your project a name."
+                    },
+                    {
+                        element: '#aspectRatio',
+                        intro: "Choose the aspect ratio for your card."
+                    },
+                    {
+                        element: '#bgColorPicker',
+                        intro: "Select a background color."
+                    },
+                    {
+                        element: '#themeSelector',
+                        intro: "Choose a theme for your card."
+                    },
+                    {
+                        element: '#message',
+                        intro: "Enter your greeting message here."
+                    },
+                    {
+                        element: 'button[onclick="addText()"]',
+                        intro: "Click this to add your text to the card."
+                    },
+                    {
+                        element: '#fontSelector',
+                        intro: "Choose a font for your text."
+                    },
+                    {
+                        element: '#colorPicker',
+                        intro: "Select a color for your text."
+                    },
+                    {
+                        element: '#fontSize',
+                        intro: "Adjust the size of your text."
+                    },
+                    {
+                        element: '#textAlign',
+                        intro: "Choose the alignment for your text."
+                    },
+                    {
+                        element: 'button[onclick="toggleFrames()"]',
+                        intro: "Click here to show or hide frame options."
+                    },
+                    {
+                        element: 'button[onclick="toggleStickers()"]',
+                        intro: "Click here to show or hide sticker options."
+                    },
+                    {
+                        element: '#blurRange',
+                        intro: "Adjust the blur effect on your card."
+                    },
+                    {
+                        element: '#vignetteRange',
+                        intro: "Add a vignette effect to your card."
+                    },
+                    {
+                        element: '#overlayColor',
+                        intro: "Add a color overlay to your card."
+                    },
+                    {
+                        element: '#cardContainer',
+                        intro: "This is where your card is displayed. You can zoom and pan using touch gestures."
+                    },
+                    {
+                        element: 'button[onclick="generateCard()"]',
+                        intro: "Click this to generate your final card."
+                    },
+                    {
+                        element: '#downloadBtn',
+                        intro: "Download your finished card as a high-quality image."
+                    },
+                    {
+                        element: '#shareButtons',
+                        intro: "Share your creation on social media!"
+                    }
+                ]
+            }).start();
+        });
+
+        Dropzone.options.myDropzone = {
+            url: "#",
+            autoProcessQueue: false,
+            uploadMultiple: false,
+            maxFiles: 1,
+            acceptedFiles: "image/*",
+            init: function() {
+                this.on("addedfile", function(file) {
+                    if (this.files.length > 1) {
+                        this.removeFile(this.files[0]);
+                    }
+                    const reader = new FileReader();
+                    reader.onload = function(e) {
+                        setBackgroundImage(e.target.result);
+                    }
+                    reader.readAsDataURL(file);
                 });
-            } catch (error) {
-                console.error('Error fetching suggestions:', error);
-                return [];
             }
-        }
+        };
 
-        async function saveSuggestions(suggestions) {
-            try {
-                await makeRateLimitedRequest(async () => {
-                    await axios.put(`https://api.jsonbin.io/v3/b/${BIN_ID}`, { suggestions }, {
-                        headers: {
-                            'Content-Type': 'application/json',
-                            'X-Master-Key': API_KEY
-                        }
-                    });
-                });
-            } catch (error) {
-                console.error('Error saving suggestions:', error);
-                throw error;
-            }
-        }
+        // Add zoom functionality
+        const cardContainer = document.getElementById('cardContainer');
+        const hammer = new Hammer(cardContainer);
 
-        async function addSuggestion() {
-            const suggestionText = document.getElementById('newSuggestion').value.trim();
-            if (suggestionText) {
-                try {
-                    const suggestions = await fetchSuggestions();
-                    suggestions.push(suggestionText);
-                    await saveSuggestions(suggestions);
-                    document.getElementById('newSuggestion').value = '';
-                    displaySuggestions();
-                } catch (error) {
-                    alert(error.message);
-                }
-            }
-        }
+        let currentScale = 1;
+        let posX = 0;
+        let posY = 0;
 
-        async function displaySuggestions() {
-            try {
-                const suggestions = await fetchSuggestions();
-                const suggestionsContainer = document.getElementById('suggestions');
-                suggestionsContainer.innerHTML = suggestions.map(suggestion => 
-                    `<div class="suggestion">${suggestion}</div>`
-                ).join('');
-            } catch (error) {
-                console.error('Error displaying suggestions:', error);
-                alert("Unable to load suggestions. Please try again later.");
+        hammer.get('pinch').set({ enable: true });
+        hammer.get('pan').set({ direction: Hammer.DIRECTION_ALL });
+
+        hammer.on('pinch pan', function(ev) {
+            if (ev.type === 'pinch') {
+                currentScale = Math.max(1, Math.min(currentScale * ev.scale, 3));
+            } else if (ev.type === 'pan') {
+                posX += ev.deltaX;
+                posY += ev.deltaY;
             }
-        }
+
+            canvas.setZoom(currentScale);
+            canvas.absolutePan(new fabric.Point(-posX, -posY));
+            canvas.renderAll();
+        });
 
         window.onload = function() {
             initCanvas();
+            generateFrames();
             generateStickers();
-            $('.carousel').slick({
-                dots: true,
-                infinite: true,
-                speed: 300,
-                slidesToShow: 1,
-                adaptiveHeight: true
-            });
-            displaySuggestions();
         };
     </script>
 </body>
